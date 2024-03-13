@@ -15,3 +15,15 @@ def setup_browser(browser_size):
     browser.config.window_height = height
     yield
     browser.quit()
+
+
+@pytest.fixture(scope='function')
+def mobile():
+    browser.config.window_width = 400
+    browser.config.window_height = 800
+
+
+@pytest.fixture(scope='function')
+def desktop():
+    browser.config.window_width = 1920
+    browser.config.window_height = 1080
