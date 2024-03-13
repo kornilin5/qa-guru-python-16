@@ -2,8 +2,7 @@ import pytest
 from selene import browser
 
 
-@pytest.mark.parametrize('browser_size', [(400, 800)], indirect=True)
-def test_open_github_sign_in_page_desktop():
+def test_open_github_sign_in_page_desktop(desktop_mobile_size):
     if browser.config.window_width == 400 and browser.config.window_height == 800:
         pytest.skip("Передано значение мобильного")
     else:
@@ -11,8 +10,7 @@ def test_open_github_sign_in_page_desktop():
         browser.element('.HeaderMenu-link--sign-in').click()
 
 
-@pytest.mark.parametrize('browser_size', [(1920, 1080)], indirect=True)
-def test_open_github_sign_in_page_mobile():
+def test_open_github_sign_in_page_mobile(desktop_mobile_size):
     if browser.config.window_width == 1920 and browser.config.window_height == 1080:
         pytest.skip("Передано значение десктопа")
     else:
